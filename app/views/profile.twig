@@ -1,0 +1,59 @@
+{% include 'layout/header.twig' %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+
+            {% if messages.error %}
+                <div class="alert alert-danger">
+                    {{  messages.error }}
+                </div>
+            {% endif %}
+
+
+            {% if messages.success %}
+                <div class="alert alert-success">
+                    {{  messages.success }}
+                </div>
+            {% endif %}
+
+        </div>
+
+
+
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information" id="centerTable">
+                                <tbody>
+
+                                <tr>
+                                    <td>Username</td>
+                                    <td>{{ user.username }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>{{ user.email }}</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a href="/edit" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                    <a href="/editUserMdp" type="button" class="btn btn-success"><i>Edit mot de passe</i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{%  include 'layout/footer.twig' %}

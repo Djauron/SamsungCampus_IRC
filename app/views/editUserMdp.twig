@@ -1,0 +1,56 @@
+{% include 'layout/header.twig' %}
+
+
+<div class="container">
+    <div class="row main">
+        <div class="main-login main-center">
+
+            <div class="form-group">
+
+                {% if messages.error %}
+                    <div class="alert alert-danger">
+                        {{  messages.error }}
+                    </div>
+                {% endif %}
+
+
+                {% if messages.success %}
+                    <div class="alert alert-success">
+                        {{  messages.success }}
+                    </div>
+                {% endif %}
+
+            </div>
+            <form class="" method="post" action="/editMdp">
+
+                <div class="form-group">
+                    <label for="editPassword" class="cols-sm-2 control-label">Mot de passe</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="editPassword" id="editPassword"  placeholder="Mdp"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="editPasswordV" class="cols-sm-2 control-label">Confirmer Mdp</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="editPasswordV" id="editPasswordV" placeholder="Confirmer Mdp"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="submit" id="validEdit" class="btn btn-primary btn-lg btn-block login-button" value="Editer">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{%  include 'layout/footer.twig' %}

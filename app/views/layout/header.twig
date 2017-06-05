@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Chat</title>
+        <meta charset ="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7/dist/css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7/dist/css/bootstrap.css">
+    </head>
+</html>
+<body>
+<div class="navbar navbar-inverse navbar-twitch" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="small-nav"> <span class="logo"> <B> </span> </span>
+                <span class="full-nav"> IRC </span>
+            </a>
+        </div>
+        <div class="">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#">
+						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Home">
+							<span class="glyphicon glyphicon-home"></span>
+						</span>
+                        <span class="full-nav"> Home </span>
+                    </a>
+                </li>
+                {% if username %}
+                <li>
+                    <a href="/profile">
+						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="About Us">
+							<span class="fa fa-users"></span>
+						</span>
+                        <span class="full-nav"> Profile </span>
+                    </a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="#contact-us">
+						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Contact Us">
+							<span class="glyphicon glyphicon-comment"></span>
+						</span>
+                        <span class="full-nav"> Contact Us </span>
+                    </a>
+                </li>
+                {% if username %}
+                    <li>
+                        <a href="/disconnect"</a>
+						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="About Us">
+							<span class="fa fa-users"></span>
+						</span>
+                            <span class="full-nav"> Se deconnecter </span>
+                        </a>
+                    </li>
+
+                {% endif %}
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>

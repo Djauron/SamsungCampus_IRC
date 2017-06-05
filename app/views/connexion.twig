@@ -1,0 +1,60 @@
+{% include 'layout/header.twig' %}
+
+
+<div class="container">
+    <div class="row main">
+        <div class="main-login main-center">
+
+            <div class="form-group">
+
+                {% if messages.error %}
+                    <div class="alert alert-danger">
+                        {{  messages.error }}
+                    </div>
+                {% endif %}
+
+
+                {% if messages.success %}
+                    <div class="alert alert-success">
+                        {{  messages.success }}
+                    </div>
+                {% endif %}
+
+            </div>
+            <form class="" method="post" action="/verifUser">
+
+                <div class="form-group">
+                    <label for="usernameLog" class="cols-sm-2 control-label">Username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="usernameLog" id="usernameLog"  placeholder="Username"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="userPassword" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="userPassword" id="userPassword"  placeholder="Password"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="submit" id="validlogin" class="btn btn-primary btn-lg btn-block login-button" value="Connexion">
+                </div>
+
+                <div class="form-group ">
+                    <a href="/inscription" class="btn btn-primary btn-lg btn-block login-button">Pas encore inscrit ?</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{%  include 'layout/footer.twig' %}

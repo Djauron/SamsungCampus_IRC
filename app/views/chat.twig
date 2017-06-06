@@ -58,19 +58,22 @@
                 <!--Header-->
                 <div class="row header-wrap">
                     <div class="chat-header col-sm-12">
-                        <label for="createChan">Cree un chan</label>
-                        <input type="text" id="createChan" name="createChan">
+                            <label for="createChan">Cree un chan</label>
+                            <input type="text" id="createChan" name="createChan">
+                            <button id="createC">Cree</button>
                     </div>
                 </div>
 
                 <!--Conversations-->
                 <div class="row content-wrap">
+                    {% for chan in chans %}
                     <div class="conversation btn">
                         <div class="media-body">
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="pull-right time">Last seen 12:10am</small>
+                            <h5 class="media-heading">{{ chan.chan }}</h5>
+                            <small class="pull-right time">{{ chan.createdAt }}</small>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -93,10 +96,7 @@
                 <div class="row content-wrap messages">
                     <div class="msg">
                         <div class="media-body">
-                            <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-
-                            <h5 class="media-heading">Walter White</h5>
-                            <small class="col-sm-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...</small>
+                          <div id="zone-chat"></div>
                         </div>
                     </div>
                 </div>

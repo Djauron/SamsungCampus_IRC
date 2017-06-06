@@ -1,14 +1,18 @@
-exports.chat = function(request, response){
+var Chat = require('../model/Chat.js');
+
+exports.chat = function(request, response) {
     var sess = request.session;
     // if(sess.username)
     // {
-        response.render("chat", {'username':sess.username});
     // }
     // else
     // {
     //     response.redirect('/connexion');
     // }
+    response.render("chat");
 };
+
+
 
 
 exports.disconnect = function(request, response){

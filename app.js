@@ -26,6 +26,7 @@ app.use(session({
     saveUninitialized: true}));
 app.use(flash());
 
+require('./app/chat/socket.js')(io);
 require('./app/config/route.js')(app);
 
 

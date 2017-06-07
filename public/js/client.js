@@ -6,6 +6,16 @@ $('#createC').click(function () {
     $('#createChan').val("");
 });
 
+socket.on('failchan', function (data) {
+    console.log(data);
+    $('.infoUtil').prepend(data);
+});
+
+socket.on('valid', function (data) {
+    console.log(data);
+    $('.infoUtil').prepend(data);
+});
+
 
 
 

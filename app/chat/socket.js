@@ -11,9 +11,9 @@ module.exports = function (io) {
             var newChan = new Chat({chan: chan});
             newChan.save(function (err) {
                 if (err) {
-                    flash('error', 'erreur');
+                    socket.emit('failchan', 'Chan existe deja');
                 } else {
-
+                    socket.emit('valid', 'Chan cree');
                 }
             });
         })

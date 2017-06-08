@@ -9,7 +9,7 @@ exports.chat = function(request, response) {
     // {
     //     response.redirect('/connexion');
     // }
-    response.render("chat");
+    response.render("chat", {'username':sess.username});
 };
 
 

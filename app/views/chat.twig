@@ -67,14 +67,9 @@
 
                 <!--Conversations-->
                 <div class="row content-wrap">
-                    {% for chan in chans %}
-                    <div class="conversation btn">
-                        <div class="media-body">
-                            <h5 class="media-heading">{{ chan.chan }}</h5>
-                            <small class="pull-right time">{{ chan.createdAt }}</small>
-                        </div>
+                    <div class="conversation btn infoChan">
+
                     </div>
-                    {% endfor %}
                 </div>
             </div>
 
@@ -97,7 +92,7 @@
                 <div class="row content-wrap messages">
                     <div class="msg">
                         <div class="media-body">
-                          <div id="zone-chat"></div>
+                          <div id="zone_chat"></div>
                         </div>
                     </div>
                 </div>
@@ -106,10 +101,10 @@
                 <div class="row send-wrap">
                     <div class="send-message">
                         <div class="message-text">
-                            <textarea class="no-resize-bar form-control" rows="2" placeholder="Write a message..."></textarea>
+                            <textarea class="no-resize-bar form-control" id="formulaire_chat" rows="2" placeholder="Write a message..."></textarea>
                         </div>
                         <div class="send-button">
-                            <a class="btn">Send <i class="fa fa-send"></i></a>
+                            <a class="btn" id="validMessage">Send <i class="fa fa-send"></i></a>
                         </div>
                     </div>
                 </div>
@@ -140,6 +135,7 @@
         </div>
     </div>
 </div>
-
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/client.js"></script>
 
 {%  include 'layout/footer.twig' %}

@@ -1,5 +1,6 @@
 var User = require('../model/User.js');
 var passwordHash = require('password-hash');
+var username = "";
 
 
 exports.inscription = function(request, response){
@@ -173,6 +174,7 @@ exports.verifUser = function(request, response){
                 } else {
                     var sess = request.session;
                     sess.username = users[0].username;
+                    username = request.body.usernameLog;
                     request.flash('success', 'Connecter avec succes');
                     response.redirect('/chat');
                 }
@@ -184,4 +186,8 @@ exports.verifUser = function(request, response){
         request.flash('error', 'Username ou Mot de passe incorrect');
         response.redirect('/connexion');
     }
+};
+
+exports.getUsername = function(){
+    return username;
 };

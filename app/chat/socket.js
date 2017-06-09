@@ -7,29 +7,36 @@ module.exports = function (io) {
 
     io.on('connection', function (client) {
 
+        function infosChan()
+        {
+            Chat.find({}, function (err, chan) {
+                if(chan.length !== 0)
+                {
+
+                    client.emit('infoschan', chan);
+
+                }
+            });
+        }
+
         var user = User.getUsername();
 
         if(user === "" || user === undefined) return false;
 
         usertab.push(user);
         client.pseudo = user;
-        client.broadcast.emit('new_user', user);
+        client.broadcast.emit('new_user', user, usertab);
+        client.emit('new_user', user, usertab);
 
-        console.log(usertab);
+        infosChan();
 
         client.on('message', function (message) {
             client.emit('message', {pseudo: client.pseudo, message: message});
             client.broadcast.emit('message', {pseudo: client.pseudo, message: message});
         });
 
-        Chat.find({}, function (err, chan) {
-            if(chan.length !== 0)
-            {
-                for(var i = 0; i <= chan.length - 1; i++)
-                {
-                    client.emit('infoschan', chan[i].chan);
-                }
-            }
+        client.on('affChan', function () {
+            infosChan()
         });
 
         client.on('addroom', function (chan) {
@@ -45,7 +52,9 @@ module.exports = function (io) {
         });
 
         client.on('disconnect', function () {
-            client.broadcast.emit('disconnectUser', user);
+            usertab.splice(usertab.indexOf(user), 1);
+            client.broadcast.emit('disconnectUser', user, usertab);
+            console.log(usertab);
         });
 
     });

@@ -4,22 +4,38 @@ $('#createC').click(function () {
     var chan = $('#createChan').val();
     socket.emit('addroom', chan);
     $('#createChan').val("");
+    socket.emit('affChan');
 });
 
 socket.on('failchan', function (data) {
+    $('.infoUtil').html("");
     $('.infoUtil').prepend(data);
 });
 
 socket.on('valid', function (data) {
+    $('.infoUtil').html("");
     $('.infoUtil').prepend(data);
 });
 
 socket.on('infoschan', function (data) {
-    $('.infoChan').prepend(data + "<br>");
+    $('#infoChan').empty();
+    for(var i = 0; i <= data.length - 1; i++)
+    {
+        $('#infoChan').prepend(data[i].chan + "<br>");
+    }
+    console.log(data + "infochan here");
 });
 
 
-socket.on('new_user', function(pseudo) {
+socket.on('new_user', function(pseudo, tab) {
+    if(tab.length >= 2)
+    {
+        $('#presentName').html("");
+    }
+    for(var i = 0; i <= tab.length - 1; i++)
+    {
+        $('#presentName').append(tab[i] + "<br>");
+    }
     $('#zone_chat').prepend('<p><em>' + pseudo + ' a rejoint le Chat !</em></p>');
 });
 
@@ -47,7 +63,12 @@ socket.on('message', function(data) {
 });
 
 
-socket.on('disconnectUser', function(pseudo) {
+socket.on('disconnectUser', function(pseudo, tab) {
+    $('#presentName').html("");
+    for(var i = 0; i <= tab.length - 1; i++)
+    {
+        $('#presentName').append(tab[i] + "<br>");
+    }
     $('#zone_chat').prepend('<p><em>' + pseudo + ' a quitter le Chat !</em></p>');
 });
 

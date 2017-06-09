@@ -54,20 +54,20 @@
 
             <!--Left Menu / Conversation List-->
             <div class="col-sm-12 section-wrap">
-
+                <div class="infoUtil"></div>
                 <!--Header-->
                 <div class="row header-wrap">
                     <div class="chat-header col-sm-12">
-                            <label for="createChan">Cree un chan</label>
-                            <input type="text" id="createChan" name="createChan">
-                            <button id="createC">Cree</button>
-                            <div class="infoUtil"></div>
+                        <label for="createChan">Cree un chan</label>
+                        <input type="text" id="createChan" name="createChan">
+                        <button id="createC">Cree</button>
+
                     </div>
                 </div>
 
                 <!--Conversations-->
                 <div class="row content-wrap">
-                    <div class="conversation btn infoChan">
+                    <div class="conversation btn" id="infoChan">
 
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                 <div class="row content-wrap">
                     <div class="contact">
                         <div class="media-body">
-                            <h5 class="media-heading">Nom du mec</h5>
+                            <h5 class="media-heading" id="presentName"></h5>
                         </div>
                     </div>
                 </div>

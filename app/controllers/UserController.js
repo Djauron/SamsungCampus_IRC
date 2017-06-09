@@ -175,7 +175,6 @@ exports.verifUser = function(request, response){
                     var sess = request.session;
                     sess.username = users[0].username;
                     username = request.body.usernameLog;
-                    request.flash('success', 'Connecter avec succes');
                     response.redirect('/chat');
                 }
         });
